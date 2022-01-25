@@ -5,9 +5,11 @@ codes to solve this and that algorithm problem..
 ## Until Local
 
 ```bash
-git add [filename] # 'add' with '*' is not recommended.(although there is .gitignore)
+# 'add' with '*' is not recommended.(although there is .gitignore)
+git add [filename]
 
-git commit -m [commit message] # if you want detailed comments, just 'git commit'.
+# if you want detailed comments, just 'git commit'.
+git commit -m [commit message]
 ```
 
 ## To GitHub
