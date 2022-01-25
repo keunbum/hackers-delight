@@ -5,7 +5,8 @@
 ```bash
 git add [filename]
 
-git commit -m [commit message] (
+# if you want detailed comments, just 'git commit'.
+git commit -m [commit message] 
 ```
 
 ## To GitHub
