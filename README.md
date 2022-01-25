@@ -10,9 +10,8 @@ git commit -m [commit message] # if you want detailed comments, just 'git commit
 
 ## To GitHub
 
-# you'll need to know the exact meaning of '-u' someday, that of the other arguments as well...
-
 ```bash
+# you'll need to know the exact meaning of '-u' someday, that of the other arguments as well...
 git push -u origin main
 ```
 
