@@ -2,7 +2,7 @@
 
 ## Until Local
 
-'''bash
+```bash
 git add [filename]
 
 git commit -m [commit message]
