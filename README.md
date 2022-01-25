@@ -5,11 +5,14 @@
 ```bash
 git add [filename]
 
-git commit -m [commit message]
+git commit -m [commit message] (
 ```
 
 ## To GitHub
 ``` bash
 git push -u origin main
 ```
+
+## Reference
+https://www.makeareadme.com/
 
