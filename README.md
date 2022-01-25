@@ -20,6 +20,7 @@ git push -u origin main
 ```
 
 ## Reference
-https://www.makeareadme.com/
-https://www.acmicpc.net/blog/view/1
+
+* https://www.makeareadme.com/
+* https://www.acmicpc.net/blog/view/1
 
