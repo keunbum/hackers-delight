@@ -20,7 +20,7 @@ git push -u origin main
 ```
 
 ## Let me add a few more words...
-* A *commit* is like a snapshot of all the files in your project at a particular point in time.
+* A *[commit](https://docs.github.com/en/get-started/quickstart/github-glossary#commit)* is like a snapshot of all the files in your project at a particular point in time.
 
 ## Reference
 
