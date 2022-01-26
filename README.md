@@ -19,6 +19,9 @@ git commit -m [commit message]
 git push -u origin main
 ```
 
+## Let me add a few more words...
+* A *commit* is like a snapshot of all the files in your project at a particular point in time.
+
 ## Reference
 
 * https://www.makeareadme.com/
