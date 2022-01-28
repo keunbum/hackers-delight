@@ -96,4 +96,5 @@ You can use git *[checkout](https://docs.github.com/en/get-started/quickstart/gi
 
 ### For Git
 * https://docs.github.com/en/get-started
+* https://docs.github.com/en/get-started/using-git/about-git
 * https://git-scm.com/docs
