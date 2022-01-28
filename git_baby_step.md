@@ -14,7 +14,6 @@ $ git config --global init.defaultBranch [name]
 
 
 ## Command Note
-Before we start...
 
 ### init
 Initializes a brand new Git repository and begins tracking an existing directory.
