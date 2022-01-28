@@ -1,6 +1,6 @@
 # Git Baby Step
 
-## Tips for Windows
+## Tips
 
 ### up to date
 ```bash
@@ -105,10 +105,6 @@ You can use git *[checkout](https://docs.github.com/en/get-started/quickstart/gi
 
 
 ## Reference
-
-### For Markdown
-* https://www.makeareadme.com/
-* https://www.acmicpc.net/blog/view/1
 
 ### For Git
 * https://docs.github.com/en/get-started
