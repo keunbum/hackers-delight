@@ -1,5 +1,5 @@
 # Git Usage Example
-Rather than reckless memorizing, 'Yeah, this is the genral flow.'.
+Rather than reckless memorizing, 'Ok.. this is the genral flow'.
 
 ## Example: Start a new repository and publish it to GitHub.
 Create an empty repository.
@@ -10,14 +10,14 @@ $ git init [repo]
 
 $ cd [repo]
 
-# create some files(ex. READMD.md)
-# also via vi or other editors)
+# create some files(ex READMD.md)
+# also be done via vi or other editors
 $ touch [file]
 
 # git isn't aware of the file, stage it
 $ git add [file]
 
-# take a smapshot of the staging area
+# take a snapshot of the staging area
 $ git commit -m [commit message]
 
 # provide the path for the repository you created on github
