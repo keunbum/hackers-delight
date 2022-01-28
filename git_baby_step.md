@@ -44,8 +44,9 @@ Updates the local line of development with updates from its remote counterpart.
 Developers use this command if a teammate has made commits to a branch on a remote, and they would like to reflect those changes in their local environment.
 
 ```bash
+# This is just an example.
 # The -u(--set-upstream-to) option might come in handy.
-$ git pull -u origin main
+$ git pull -u [refs-name] [branch-name]
 ```
 
 ### push
@@ -53,7 +54,7 @@ Updates remote refs with any commits made locally to a branch.
 
 ```bash
 # As with *pull*, -u would be convenient.
-$ git push -u origin main
+$ git push -u [refs-name] [branch-name]
 ```
 
 ### clone
