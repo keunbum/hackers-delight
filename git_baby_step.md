@@ -1,8 +1,8 @@
 # Git Baby Step
 
-## Latest trands
+## Tips for errors that occurred while using Git for Windows
 
-### ```init.defaultBranch``` (from [2.28.0](https://github.blog/2020-07-27-highlights-from-git-2-28/))
+### ```init.defaultBranch``` from [2.28.0](https://github.blog/2020-07-27-highlights-from-git-2-28/)
 
 A new configuration option, which is being introduced to replace the hard-coded term.
 [Times are changing.](https://sfconservancy.org/news/2020/jun/23/gitbranchname/)
@@ -10,6 +10,12 @@ A new configuration option, which is being introduced to replace the hard-coded 
 ```bash
 # to configure the initial branch name to use in your new repos
 $ git config --global init.defaultBranch [name]
+```
+
+### up to date
+```bash
+# git for windows
+$ git update-git-for-windows
 ```
 
 
