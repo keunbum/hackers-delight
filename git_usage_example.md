@@ -12,10 +12,10 @@ $ cd [repo]
 
 # create some files(ex READMD.md)
 # also be done via vi or other editors
-$ touch [file]
+$ touch [FILE-NAME]
 
 # git isn't aware of the file, stage it
-$ git add [file]
+$ git add [FILE-NAME]
 
 # take a snapshot of the staging area
 $ git commit -m [commit message]
@@ -24,7 +24,33 @@ $ git commit -m [commit message]
 $ git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
 
 # push changes the github
-$ git push --set-upstream origin main
+$ git push -u origin main
+```
+
+## Example: Start a new repository and publish it to GitHub.
+Resolve merge conflict. Of course, this is just a simple example.
+
+```bash
+$ git add [FILE-NAME]
+$ git commit
+$ git push
+.
+.
+.
+(some error messages maybe)
+$ git pull
+Auto-merging [FILE-NAME]
+CONFLICT (content): Merge conflict in [FILE-NAME]
+Automatic merge failed; fix conflicts and then commit the result.
+$ vi [FILE-NAME]
+
+# Let's edit the file using 3 types of clues:
+# 	1. <<<<<<< HEAD
+# 	2. =======
+# 	3. >>>>>>> new_branch_to_merge_later
+
+$ git add [FILE-NAME]
+$ git commit
 ```
 
 ## Models for collaborative development
