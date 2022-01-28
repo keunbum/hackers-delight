@@ -23,7 +23,7 @@ $ git commit -m [commit message]
 # provide the path for the repository you created on github
 $ git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
 
-# push changes th github
+# push changes the github
 $ git push --set-upstream origin main
 ```
 
