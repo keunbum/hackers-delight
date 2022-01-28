@@ -1,5 +1,5 @@
 # Git Usage Example
-Rather than reckless memorizing, 'Ok.. this is the genral flow'.
+Rather than reckless memorizing, 'Ok.. this is the general flow'.
 
 ## Example: Start a new repository and publish it to GitHub.
 Create an empty repository.
