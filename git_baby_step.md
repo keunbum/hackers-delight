@@ -53,7 +53,7 @@ $ git pull -u [refs-name] [branch-name]
 Updates remote refs with any commits made locally to a branch.
 
 ```bash
-# As with *pull*, -u would be convenient.
+# As with pull, -u would be convenient.
 $ git push -u [refs-name] [branch-name]
 ```
 
