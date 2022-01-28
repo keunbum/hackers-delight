@@ -20,10 +20,9 @@ git commit -m [commit message]
 ```
 
 ### push
-
+Update remote refs using local refs, whilte sending objects necessary to complete the given refs.
 ```bash
-# you'll need to know the exact meaning of '-u' someday, that of the other arguments as well...
-git push -u origin main
+git push origin main
 ```
 
 ### clone
@@ -35,14 +34,21 @@ $ git clone [url]
 ```
 
 ### remote
+#### Adding a remote repository
+To add a new remote, use the ```git remote add``` command on the terminal,
+in the directory your repository is stored at.
+
+The ```git remote add``` command takes two arguments:
+* A remote name, for example, ```origin```
+* A remote URL, for example, ```https://github.com/user/repo.git```
 
 ```bash
-# if you want to check where it is based
+# verify remote repos
 $ git remote -v
-
-# if you want to add upstream
-$ git remote add upstream [url]
 ```
+For more information, see
+"[managing-remote-repositories](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories)"
+or "[Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)"
     
 ### fetch
 When you use git fetch, you're adding changes from the remote repository to your local working branch without committing them. **Unlike git *[pull](https://docs.github.com/en/get-started/quickstart/github-glossary#pull)*, fetching allows you to review changes before committing them to your local branch**.
