@@ -3,10 +3,10 @@
 ## Command Note
 
 ### init
-initializes a brand new Git repository and begins tracking an existing directory.
+Initializes a brand new Git repository and begins tracking an existing directory.
 
 ### add
-performs 'staging', the first part of that two-step process.
+Performs 'staging', the first part of that two-step process.
 
 Staging and committing separately gives dvelopers complete control over the history of their project
 without changing how they code and work.
@@ -17,7 +17,7 @@ git add [filename]
 ```
 
 ### commit
-saves the snapshot to the project history and completes the change-tracking process.
+Saves the snapshot to the project history and completes the change-tracking process.
 In short, a commit functions like taking a photo.
 Anything that's been staged with ```git add``` will become a part of the snapshot with ```git commit```.
 
@@ -30,28 +30,28 @@ git commit -m [commit message]
 ```
 
 ### status
-shows the status of changes as untracked, modified, or staged.
+Shows the status of changes as untracked, modified, or staged.
 
 ### branch
-shows the branches being worked on locally.
+Shows the branches being worked on locally.
 
 ### merge
-merges lines of development together. This command is typically used to combine changes made on two distinct branches. For example, a developer would merge
+Merges lines of development together. This command is typically used to combine changes made on two distinct branches. For example, a developer would merge
 when they want to combine changes from a feature branch into the main branch for deployment.
 
 ### pull
-updates the local line of development with updates from its remote counterpart.
+Updates the local line of development with updates from its remote counterpart.
 Developers use this command if a teammate has made commits to a branch on a remote, and they would like to reflect those changes in their local environment.
 
 ### push
-updates remote refs with any commits made locally to a branch.
+Updates remote refs with any commits made locally to a branch.
 ```bash
 # this is just an example.
 git push origin main
 ```
 
 ### clone
-creates a local copy of a project that already exists remotely.
+Creates a local copy of a project that already exists remotely.
 The clone includes all the project's files, history, and branches.
 
 ```bash
