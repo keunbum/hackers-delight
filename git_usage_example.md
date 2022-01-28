@@ -27,8 +27,8 @@ $ git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.gi
 $ git push -u origin main
 ```
 
-## Example: Start a new repository and publish it to GitHub.
-Resolve merge conflict. Of course, this is just a simple example.
+## Example: Resolve merge conflict
+Of course, this is just a simple example.
 
 ```bash
 $ git add [FILE-NAME]
