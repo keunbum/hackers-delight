@@ -63,7 +63,7 @@ The clone includes all the project's files, history, and branches.
 
 ```bash
 # default usage
-$ git clone [url]
+$ git clone [refs-url]
 ```
 
 ### remote
