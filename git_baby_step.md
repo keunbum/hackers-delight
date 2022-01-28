@@ -45,8 +45,8 @@ Developers use this command if a teammate has made commits to a branch on a remo
 
 ```bash
 # This is just an example.
-# The -u(--set-upstream-to) option might come in handy.
-$ git pull --set-upstream-to [refs-name] [branch-name]
+# The --set-upstream option might come in handy.
+$ git pull --set-upstream [refs-name] [branch-name]
 ```
 
 ### push
