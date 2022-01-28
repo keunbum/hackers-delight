@@ -4,7 +4,8 @@
 
 ### [2.28.0](https://github.blog/2020-07-27-highlights-from-git-2-28/)
 ```init.defaultBranch``` is a new configuration option, which is being introduced to replace the hard-coded term.
-"[Times are changing haha](https://sfconservancy.org/news/2020/jun/23/gitbranchname/)"
+
+["Times are changing."](https://sfconservancy.org/news/2020/jun/23/gitbranchname/)
 
 ```bash
 # to configure the initial branch name to use in your new repos
