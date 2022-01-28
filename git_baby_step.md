@@ -13,7 +13,7 @@ without changing how they code and work.
 
 ```bash
 # 'add' with '*' is not recommended.(although there is .gitignore)
-git add [filename]
+$ git add [filename]
 ```
 
 ### commit
@@ -26,7 +26,7 @@ along with who made them and when. Commits usually contain a commit message whic
 
 ```bash
 # if you want detailed comments, just 'git commit'.
-git commit -m [commit message]
+$ git commit -m [commit message]
 ```
 
 ### status
@@ -43,11 +43,17 @@ when they want to combine changes from a feature branch into the main branch for
 Updates the local line of development with updates from its remote counterpart.
 Developers use this command if a teammate has made commits to a branch on a remote, and they would like to reflect those changes in their local environment.
 
+```bash
+# The -u(--set-upstream-to) option might come in handy.
+$ git pull -u origin main
+```
+
 ### push
 Updates remote refs with any commits made locally to a branch.
+
 ```bash
-# this is just an example.
-git push origin main
+# As with *pull*, -u would be convenient.
+$ git push -u origin main
 ```
 
 ### clone
