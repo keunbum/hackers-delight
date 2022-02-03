@@ -101,7 +101,7 @@ $ git fetch upstream
 ```
 
 ### `checkout`
-You can use git *[checkout](https://docs.github.com/en/get-started/quickstart/github-glossary#checkout)* on the command line to create a new branch, change your current working branch to a different branch, or even to switch to a different version of a file from a different branch with `git checkout [branchname] [path to file]`.
+You can use *git [checkout](https://docs.github.com/en/get-started/quickstart/github-glossary#checkout)* on the command line to create a new branch, change your current working branch to a different branch, or even to switch to a different version of a file from a different branch with `git checkout [branchname] [path to file]`.
 
 
 ## Reference
