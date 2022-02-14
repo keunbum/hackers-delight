@@ -27,26 +27,26 @@ vector<int> solution(vector<string> info, vector<string> query) {
     cnt[a[i].second] += 1;
   }
   sort(a.begin(), a.end());
-  vector<tuple<int, int, vector<string>>> b(query.size(), {-1, 0, vector<string>(4)});
+  vector<tuple<int, int, vector<int>>> b(query.size(), {-1, 0, vector<int>(4)});
   for (int i = 0; i < (int) query.size(); i++) {
     istringstream sin(query[i]);
     get<0>(b[i]) = i; 
     for (int id = 0; id < 4; id++) {
-      sin >> get<2>(b[i])[id];
-      if (id <= 2) {
-        sin >> get<2>(b[i])[id + 1];
-      } else {
-        sin >> get<1>(b[i]);
+      string s, t;
+      sin >> s >> t;
+      get<2>(b[i])[id] = BIT[s];
+      if (id == 3) {
+        get<1>(b[i]) = stoi(t);
       }
     }
   }
-  sort(b.begin(), b.end(), [](const tuple<int, int, vector<string>>& pi, const tuple<int, int, vector<string>>& pj) {
-    return get<1>(pi) < get<1>(pj);
+  sort(b.begin(), b.end(), [](const tuple<int, int, vector<int>>& ti, const tuple<int, int, vector<int>>& tj) {
+    return get<1>(ti) < get<1>(tj);
   });
   int ptr = 0;
   vector<int> ret(b.size());
   for (int i = 0; i < (int) b.size(); i++) {
-    auto&[qid, score, ss] = b[i];
+    auto&[qid, score, bits] = b[i];
     while (ptr < (int) a.size() && a[ptr].first < score) {
       cnt[a[ptr].second] -= 1;
       ptr += 1;
@@ -56,7 +56,7 @@ vector<int> solution(vector<string> info, vector<string> query) {
       vector<int> new_bss;
       for (int v : bss) {
         for (int f = 0; f <= F[sid]; f++) {
-          if (BIT[ss[sid]] == -1 || BIT[ss[sid]] == f) {
+          if (bits[sid] == -1 || bits[sid] == f) {
             new_bss.push_back(v | (f << SHIFT[sid]));
           }
         }
