@@ -54,10 +54,10 @@ vector<int> solution(vector<string> info, vector<string> query) {
     vector<int> bss(1, 0);
     for (int sid = 0; sid < 4; sid++) {
       vector<int> new_bss;
-      for (int v : bss) {
+      for (int bs : bss) {
         for (int f = 0; f <= F[sid]; f++) {
           if (bits[sid] == -1 || bits[sid] == f) {
-            new_bss.push_back(v | (f << SHIFT[sid]));
+            new_bss.push_back(bs | (f << SHIFT[sid]));
           }
         }
       }
@@ -71,6 +71,7 @@ vector<int> solution(vector<string> info, vector<string> query) {
   }
   return ret;
 }
+
 /* read it as if you were wrong once. --> "why is this wrong??"
 
  * basic strategy:
