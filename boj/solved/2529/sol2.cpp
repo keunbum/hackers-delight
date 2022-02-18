@@ -13,14 +13,6 @@ int main() {
     cin >> ch;
     f[i] = (ch == '<');
   }
-  vector<int> P(10);
-  {
-    int e = 1;
-    for (int i = 0; i < 10; i++) {
-      P[i] = e;
-      e *= 10;
-    }
-  }
   long long mn = 9876543210;
   long long mx = 0;
   vector<bool> was(10, false);
