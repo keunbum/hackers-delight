@@ -30,14 +30,23 @@ int main() {
       mx = max(mx, cur);
       return;
     }
-    for (int i = 0; i < 10; i++) {
-      if (was[i] || (v > 0 && f[v - 1] != (cur % 10 < i))) {
-        continue;
+    if (v == 0 || f[v - 1]) {
+      for (int i = (v == 0 ? -1 : cur % 10) + 1; i < 10; i++) {
+        if (!was[i]) {
+          was[i] = true;
+          Dfs(v + 1, cur * 10 + i);
+          was[i] = false;
+        }
+      }      
+    } else {
+      for (int i = cur % 10 - 1; i >= 0; i--) {
+        if (!was[i]) {
+          was[i] = true;
+          Dfs(v + 1, cur * 10 + i);
+          was[i] = false;
+        }
       }
-      was[i] = true;
-      Dfs(v + 1, cur * 10 + i); 
-      was[i] = false;
-    }
+    } 
   };
   Dfs(0, 0);
   auto Decode = [&](long long x) {
