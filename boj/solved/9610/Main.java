@@ -14,8 +14,10 @@ public class Main {
         InputReader in = new InputReader(inputStream);
         PrintWriter out = new PrintWriter(outputStream);
         Task solver = new Task();
-        int testNumber = 1;
-        solver.solve(testNumber, in, out);
+        int testCount = 1;
+        for (int i = 1; i <= testCount; i++) {
+            solver.solve(i, in, out);
+        }
         out.close();
     }
  
