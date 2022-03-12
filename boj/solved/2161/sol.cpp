@@ -7,27 +7,16 @@ int main() {
   cin.tie(0);
   int n;
   cin >> n;
-  if (n == 1) {
-    cout << 1 << '\n';
-    return 0;
-  }
   deque<int> a(n);
   iota(a.begin(), a.end(), 1);
-  deque<int> b;
   for (int rot = 0; rot < n; rot++) {
     cout << a.front() << " ";
     a.pop_front();
     if (rot == n - 1) {
       break;
     }
-    if (a.size() == 0) {
-      swap(a, b);
-    }
-    b.push_back(a.front());
+    a.push_back(a.front());
     a.pop_front();
-    if (a.size() == 0) {
-      swap(a, b);
-    }
   }
   return 0;
 }
