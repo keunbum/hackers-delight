@@ -37,6 +37,7 @@ int main() {
                   min_dis = dis;
                   mi = i;
                   mj = j;
+                  break;
                 }
               }
             }
