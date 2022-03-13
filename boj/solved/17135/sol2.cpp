@@ -1,0 +1,83 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  const int inf = (int) 1e8;
+  int h, w, D;
+  cin >> h >> w >> D;
+  vector<vector<bool>> a(h, vector<bool>(w));
+  for (int i = 0; i < h; i++) {
+    for (int j = 0; j < w; j++) {
+      int x;
+      cin >> x;
+      a[i][j] = x;
+    }
+  }
+  int ans = 0;
+  for (int x = 0; x < w; x++) {
+    for (int y = x + 1; y < w; y++) {
+      for (int z = y + 1; z < w; z++) {
+        vector<vector<bool>> g(a);
+        int tot = 0;
+        for (int rnd = 0; rnd < h; rnd++) {
+          set<pair<int, int>> s;
+          for (int pj : {x, y, z}) {
+            int min_dis = inf;
+            int mi, mj;
+            for (int j = 0; j < w; j++) {
+              for (int i = h - rnd - 1; i >= 0; i--) {
+                if (g[i][j] == 0) {
+                  continue;
+                }
+                int dis = h - rnd - i + abs(pj - j);
+                if (dis < min(D + 1, min_dis)) {
+                  min_dis = dis;
+                  mi = i;
+                  mj = j;
+                }
+              }
+            }
+            if (min_dis < inf) {
+              s.emplace(mi, mj);
+            }
+          }
+          for (auto[x, y] : s) {
+            g[x][y] = 0;
+          }
+          tot += s.size();
+        }
+        ans = max(ans, tot);
+      }
+    }
+  }
+  cout << ans << '\n';
+  return 0;
+}
+
+/* read it as if you were wrong once. --> "why is this wrong??"
+
+ * basic strategy:
+  * don't be obsessed with speed or memory when the input is small compared to limit
+  * internalization of problem statements
+  * simplify. a step-by-step approach
+  * readability is important
+  * don't lose your pace. deep breathing. keep calm
+  
+ * stuff you should look for
+  * performance or safety?
+  * local or global?
+  * 0-based or 1-based?
+  * int overflow, array bounds
+  * special cases (n=1?)
+  * do smth instead of nothing and stay organized
+  * WRITE STUFF DOWN
+  * DON'T GET STUCK ON ONE APPROACH
+  
+ * after solving the problem
+  * consider whether there is another way.
+  * reduce memory, time, codes, ...
+  * what is my weakness that need to be addressed by solving this problem?
+*/
