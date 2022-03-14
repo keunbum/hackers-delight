@@ -16,7 +16,6 @@ int main() {
       a[i][j] = x;
     }
   }
-  vector<bool> used(w, false);
   vector<int> v;
   int ans = 0;
   function<void(int)> Dfs = [&](int pos) {
@@ -54,13 +53,9 @@ int main() {
       return;
     }
     for (int j = pos; j < w; j++) {
-      if (!used[j]) {
-        used[j] = true;
-        v.push_back(j);
-        Dfs(j + 1);
-        v.pop_back();
-        used[j] = false;
-      }
+      v.push_back(j);
+      Dfs(j + 1);
+      v.pop_back();
     }
   };
   Dfs(0);
