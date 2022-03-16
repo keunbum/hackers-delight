@@ -9,20 +9,7 @@ vector<vector<int>> solution(int n, bool clockwise) {
   const int dirs[2][4] = {{0, 3, 2, 1}, {1, 0, 3, 2}};
   const int di[4] = {1, 0, -1, 0};
   const int dj[4] = {0, 1, 0, -1};
-  int z[4];
-  int w[4];
-  if (n % 2 == 1) {
-    for (int i = 0; i < 4; i++) {
-      z[i] = w[i] = n / 2;
-    }
-  } else {
-    int nn = n / 2;
-    z[0] = nn; w[0] = nn;
-    z[1] = nn; w[1] = nn - 1;
-    z[2] = nn - 1; w[2] = nn - 1;
-    z[3] = nn - 1; w[3] = nn;
-  }
-  auto Run = [&](int ci, int cj, int dir, int ei, int ej) {
+  auto Run = [&](int ci, int cj, int dir) {
     int cur = 1;
     for (int space = 1; space <= n / 2; space++) {
       while (true) {
@@ -49,7 +36,7 @@ vector<vector<int>> solution(int n, bool clockwise) {
   };                 
   int last;
   for (int i = 0; i < 4; i++) {
-    last = Run(x[i], y[i], dirs[clockwise][i], z[i], w[i]);
+    last = Run(x[i], y[i], dirs[clockwise][i]);
   }
   if (n % 2 == 1) {
     a[n / 2][n / 2] = last;
