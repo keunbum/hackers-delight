@@ -11,15 +11,14 @@ using namespace std;
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  const int C[4] = {25, 10, 5, 1};
   int tt;
   cin >> tt;
   while (tt--) {
     int x;
     cin >> x;
-    for (int i = 0; i < 4; i++) {
-      cout << x / C[i] << " \n"[i == 3];
-      x %= C[i];
+    for (int y : {25, 10, 5, 1}) {
+      cout << x / y << " \n"[y == 1];
+      x %= y;
     }
   }
   return 0;
