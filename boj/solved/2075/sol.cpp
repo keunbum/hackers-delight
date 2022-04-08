@@ -18,7 +18,6 @@ int main() {
     int x;
     cin >> x;
     s.push(~x);
-    debug(it * n + jt, ~s.top());
     if ((int) s.size() > n) {
       s.pop();
     }
