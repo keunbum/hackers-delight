@@ -20,14 +20,14 @@ int main() {
   }         
   int ans = 0;
   vector<int> b;
-  auto GetFirstFrom = [&](int i, int x) {
-    int j;
-    for (j = i; j < k; j++) {
-      if (a[j] == x) {
+  auto GetFirstFrom = [&](int st, int x) {
+    int i;
+    for (i = st; i < k; i++) {
+      if (a[i] == x) {
         break;
       }
     }
-    return j;
+    return i;
   };
   for (int i = 0; i < k; i++) {
     if (find(b.begin(), b.end(), a[i]) != b.end()) {
