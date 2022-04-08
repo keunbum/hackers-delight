@@ -21,7 +21,7 @@ int main() {
   x -= w;
   y -= w;
   z -= w;
-  ans += w + (max({x, y, z}) >= 2 ? (int) (x > 0) + (y > 0) + (z > 0) : (x + y + z > 0));
+  ans += w + (max({x, y, z}) >= 2 ? (x > 0) + (y > 0) + (z > 0) : (x + y + z > 0));
   cout << ans << '\n';
   return 0;
 }
