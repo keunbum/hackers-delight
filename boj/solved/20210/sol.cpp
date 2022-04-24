@@ -10,21 +10,20 @@ using namespace std;
 
 array<int, 128> prio;
 
+inline bool IsDigit(char ch) { return (int) (ch - '0') < 10; }
+
 int AlphaCmp(const string& si, const string& sj) {
   int N = (int) si.size();
   int M = (int) sj.size();
-  debug("AlphaCmp", si, sj, N, M);
   for (int i = 0; i < min(N, M); i++) {
     if (prio[si[i]] != prio[sj[i]]) {
       return prio[si[i]] - prio[sj[i]];
     }
   }
-  debug(N - M);
   return N - M;
 }
 
 int DigitCmp(const string& si, const string& sj) {
-  debug("DigitCmp", si, sj);
   int N = (int) si.size();
   int M = (int) sj.size();
   int i = 0;
@@ -48,7 +47,6 @@ int DigitCmp(const string& si, const string& sj) {
     }
     return (N - i) - (M - j);
   };
-  debug(si.substr(i), sj.substr(j));
   int z = Cmp(i, j);
   if (z == 0) {
     return i - j;
@@ -56,13 +54,11 @@ int DigitCmp(const string& si, const string& sj) {
   return z;
 }
 
-
 string GetPiece(const string& s, int N, int i) {
-  debug("GetPiece", s, N, i);
   char ch = s[i];
   i++;
   string ret(1, ch);
-  while (i < N && ((isalpha(ch) != 0) == (isalpha(s[i]) != 0))) {
+  while (i < N && (IsDigit(ch) == IsDigit(s[i]))) {
     ret += s[i];
     ++i;
   }         
@@ -87,32 +83,26 @@ int main() {
     int j = 0;
     int N = (int) si.size();
     int M = (int) sj.size();
-    debug(si, sj);
     while (i < N && j < M) {
       string pi = GetPiece(si, N, i);
       i += (int) pi.size();
       string pj = GetPiece(sj, M, j);
       j += (int) pj.size();
-      debug(pi, i, pj, j);
-      if (isalpha(pi[0]) ^ isalpha(pj[0])) {
-        debug(pi[0] < pj[0]);
+      if (IsDigit(pi[0]) ^ IsDigit(pj[0])) {
         return pi[0] < pj[0];
       }
-      if (isalpha(pi[0]) && isalpha(pj[0])) {
+      if (!IsDigit(pi[0]) && !IsDigit(pj[0])) {
         int z = AlphaCmp(pi, pj);
         if (z != 0) {
-          debug(z, z < 0);
           return z < 0;
         }
         continue;
       }
       int z = DigitCmp(pi, pj);
       if (z != 0) {
-        debug(z < 0);
         return z < 0;
       }
     }
-    debug(si.size() < sj.size());
     return si.size() < sj.size();
   });
   for (int i = 0; i < n; i++) {
