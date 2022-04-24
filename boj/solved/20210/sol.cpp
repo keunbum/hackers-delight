@@ -103,7 +103,7 @@ int main() {
         return z < 0;
       }
     }
-    return si.size() < sj.size();
+    return N < M;
   });
   for (int i = 0; i < n; i++) {
     cout << strs[i] << '\n';
