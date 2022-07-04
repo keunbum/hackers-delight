@@ -13,7 +13,6 @@ int solution(vector<int> citations) {
   int high = (int) 1e4;
   while (low < high) {
     int mid = (low + high + 1) / 2;
-    bool ok = true;
     int cntA = 0;
     for (int x : citations) {
       cntA += (x >= mid);
