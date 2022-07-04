@@ -25,17 +25,8 @@ int solution(vector<vector<string>> relation) {
   };
   vector<int> ret;
   for (int s = 1; s < (1 << w); s++) {
-    if (IsUnique(s)) {
-      bool ok = true;
-      for (int t : ret) {
-        if ((s | t) == s) {
-          ok = false;
-          break;
-        }
-      }
-      if (ok) {
-        ret.push_back(s);
-      }
+    if (IsUnique(s) && all_of(ret.begin(), ret.end(), [&](int t) { return (s | t) != s; })) {
+      ret.push_back(s);
     }
   }
   return ret.size();
