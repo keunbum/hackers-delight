@@ -9,22 +9,27 @@ using namespace std;
 #endif
 
 string solution(string s) {
-  bool first = true;
-  for (char& ch : s) {
+  s += ' ';
+  const long long inf = (long long) 9e18;
+  long long mn = inf;
+  long long mx = -inf;
+  long long v = 0;
+  int sign = 1;
+  for (char ch : s) {
     if (ch == ' ') {
-      first = true;
-      continue;
-    }
-    if (first) {
-      first = false;
-      if (ch < '0' || ch > '9') {
-        ch &= ~32;
-      }
+      v *= sign;
+      mn = min(mn, v);
+      mx = max(mx, v);
+      v = 0;
+      sign = 1;
+    } else
+    if (ch == '-') {
+      sign = -1;
     } else {
-      ch |= 32;
+      v = v * 10 + (int) (ch - '0');
     }
   }
-  return s;
+  return to_string(mn) + " " + to_string(mx);
 }
 
 int main() {
