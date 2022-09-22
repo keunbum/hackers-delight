@@ -13,7 +13,6 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
   int n = (int) enroll.size();
   mp["-"] = n;
   vector<int> p(n + 1, -1);
-  vector<int> deg(n + 1, 0);
   for (int i = 0; i < n; i++) {
     mp[enroll[i]] = i;
     int j = mp[referral[i]];
