@@ -1,15 +1,9 @@
 ﻿import sys
 
-def eprint(*args, **kwargs):
-    print(*args, file=sys.stderr, **kwargs)
-
 input = sys.stdin.readline
-
-def strs():
-    return input().split()
-
-def ints():
-    return map(int, input().split())
+def eprint(*args, **kwargs): print(*args, file=sys.stderr, **kwargs)
+def strs(): return input().split()
+def ints(): return map(int, input().split())
 
 sys.setrecursionlimit(10 ** 6)
 h, w = ints()

@@ -29,4 +29,4 @@ for v in que:
         deg[u] -= 1
         if deg[u] == 0:
             que.append(u)
-print(dp[h * w - 1])
+print(dp[-1])
