@@ -18,10 +18,7 @@ int main() {
     cin >> s;
     int b = 0;
     int e = (int) s.size() - 1;
-    while (b < e) {
-      if (s[b] != s[e]) {
-        break;
-      }
+    while (b < e && s[b] == s[e]) {
       ++b;
       --e;
     }

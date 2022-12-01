@@ -38,7 +38,7 @@ int main() {
     vector<int> pre(md, -1);
     for (int b = 0; b < (int) que.size(); b++) {
       int v = que[b];
-      for (auto GetU : {D, S, L, R}) {
+      for (auto& GetU : {D, S, L, R}) {
         int u = GetU(v);
         if (dist[u] == -1) {
           dist[u] = dist[v] + 1;

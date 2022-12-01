@@ -8,7 +8,7 @@ using namespace std;
 #define debug(...) void(0)
 #endif
 
-int solution(int N, vector<vector<int> > road, int K) {
+int solution(int N, vector<vector<int>> road, int K) {
   const int inf = (int) 1e9;
   vector<vector<int>> dp(N, vector<int>(N, inf));
   for (int i = 0; i < N; i++) {

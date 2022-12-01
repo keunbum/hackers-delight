@@ -71,34 +71,3 @@ vector<int> solution(int n, vector<vector<int>> paths, vector<int> gates, vector
   assert(!res.empty());
   return {*min_element(res.begin(), res.end()) + 1, bound};   
 }
-
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  solution(7, {{1, 4, 4}, {1, 6, 1}, {1, 7, 3}, {2, 5, 2}, {3, 7, 4}, {5, 6, 6}}, {1}, {2, 3, 4});
-  solution(7, {{1, 2, 5}, {1, 4, 1}, {2, 3, 1}, {2, 6, 7}, {4, 5, 1}, {5, 6, 1}, {6, 7, 1}}, {3, 7}, {1, 5});
-  return 0;
-}
-
-/* read it as if you were wrong once. --> "why is this wrong??"
-
- * basic strategy:
-  * don't be obsessed with speed or memory when the input is small compared to limit
-  * internalization of problem statements
-  * simplify. a step-by-step approach
-  * readability is important
-  * keep calm
-  
- * stuff you should look for
-  * 0-based or 1-based?
-  * int overflow, array bounds
-  * special cases (n=1?)
-  * do smth instead of nothing and stay organized
-  * WRITE STUFF DOWN
-  * DON'T GET STUCK ON ONE APPROACH
-  
- * after solving the problem
-  * consider whether there is another way.
-  * reduce memory, time, codes, ...
-  * what is my weakness that need to be addressed by solving this problem?
-*/

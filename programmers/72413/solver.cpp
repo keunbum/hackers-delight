@@ -24,8 +24,7 @@ int solution(int n, int S, int A, int B, vector<vector<int>> edges) {
     }
   }
   int ans = inf;
-  int K;
-  for (K = 0; K < n; K++) {
+  for (int K = 0; K < n; K++) {
     if (dp[S][K] == inf || dp[K][A] == inf || dp[K][B] == inf) continue;
     ans = min(ans, dp[S][K] + dp[K][A] + dp[K][B]);
   }

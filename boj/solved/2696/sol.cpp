@@ -21,6 +21,7 @@ int main() {
     for (int i = 0; i < m; i++) {
       int x;
       cin >> x;
+      debug(i, x);
       if (i % 2 == 0) {
         A.push(x);
       } else {
@@ -30,12 +31,14 @@ int main() {
         int a = A.top();
         A.pop();
         int b = ~B.top();
+        debug(a, b);
         B.pop();
         A.push(b);
         B.push(~a);
       }
       if (i % 2 == 0) {
         res.push_back(A.top());
+        debug(res);
       }
     }
     assert((int) res.size() == ((m + 1) / 2));

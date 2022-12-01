@@ -2,6 +2,12 @@
 
 using namespace std;
 
+#ifdef LOCAL
+#include "template/debug.hpp"
+#else
+#define debug(...) void(0)
+#endif
+
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -19,6 +25,7 @@ int main() {
   vector<int> v;
   int ans = 0;
   function<void(int)> Dfs = [&](int pos) {
+    debug(pos, v.size(), v);
     if ((int) v.size() == 3) {
       vector<vector<bool>> g(a);
       int cur = 0;

@@ -58,9 +58,10 @@ int main() {
   }
   {
     reverse(a.begin(), a.end());
+    reverse(res.begin(), res.end());
     fenwick<node> fenw(w);
     for (int i = 0; i < w; i++) {
-      res[w - 1 - i] = max(min(res[w - 1 - i], fenw.get(i - 1).a), a[i]) - a[i];
+      res[i] = max(min(res[i], fenw.get(i - 1).a), a[i]) - a[i];
       fenw.modify(i, {a[i]});
     }
   }

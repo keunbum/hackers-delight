@@ -30,6 +30,26 @@ int main() {
     --x; --y;
     a[x][y].emplace_back(m, s, d);
   }
+  auto Debug = [&]() {
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+        if (j > 0) {
+          cerr << " ";
+        }
+        cerr << "{";
+        for (int k = 0; k < (int) a[i][j].size(); k++) {
+          if (k > 0) {
+            cerr << ", ";
+          }
+          cerr << to_string(a[i][j][k]);
+        }
+        cerr << "}";
+      }
+      cerr << endl;
+    }
+    cerr << endl;
+  };
+  Debug();
   while (k--) {
     vector<vector<vector<tiii>>> new_a(n, vector<vector<tiii>>(n));
     for (int i = 0; i < n; i++) {
@@ -64,17 +84,12 @@ int main() {
         if (new_m == 0) {
           continue;
         }
-        vector<int> new_dirs;
-        if (allOdd || allEven) {
-          new_dirs = {0, 2, 4, 6};
-        } else {
-          new_dirs = {1, 3, 5, 7};
-        }
-        for (int new_dir : new_dirs) {
+        for (int new_dir : (allOdd || allEven) ? array<int, 4>{0, 2, 4, 6} : array<int, 4>{1, 3, 5, 7}) {
           a[i][j].emplace_back(new_m, new_s, new_dir);
         }
       }
     }
+    Debug();
   }
   int ans = 0;
   for (int i = 0; i < n; i++) {

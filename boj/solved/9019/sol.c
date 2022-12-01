@@ -29,24 +29,9 @@ int main() {
     int b = 0, e = 1;
     while (b < e) {
       int v = que[b];
+      int us[4] = {(v + v) % MD, (v + 9999) % MD, (v % 1000) * 10 + v / 1000, (v % 10) * 1000 + v / 10}; 
       for (int id = 0; id < 4; id++) {
-        int u = -1;
-        if (id == 0) {
-          u = (v + v) % MD;
-        }
-        if (id == 1) {
-          u = (v + 9999) % MD;
-        }
-        if (id == 2) {
-          int ddd = v % 1000;
-          int d = v / 1000;
-          u = ddd * 10 + d;
-        }
-        if (id == 3) {
-          int d = v % 10;
-          int ddd = v / 10;
-          u = d * 1000 + ddd;
-        }
+        int u = us[id];
         if (dist[u] >= 0) continue;
         dist[u] = dist[v] + 1;
         pre[u] = v;

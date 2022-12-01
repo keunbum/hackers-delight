@@ -38,7 +38,9 @@ int main() {
       }
     }
   }
-  cout << best[0] << " " << best[1] << " " << best[2] << '\n';
+  for (int i = 0; i < 3; i++) {
+    cout << best[i] << " \n"[i == 2];
+  }
   return 0;
 }
 

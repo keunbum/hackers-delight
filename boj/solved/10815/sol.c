@@ -74,7 +74,7 @@ int main() {
   while (m--) {
     int x;
     scanf("%d", &x);
-    printf("%d ", Find(a + Hash(x), x) != NULL);
+    printf("%d ", !!Find(a + Hash(x), x));
   }
   return 0;
 }

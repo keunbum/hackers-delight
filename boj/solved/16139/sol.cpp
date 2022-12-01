@@ -18,8 +18,9 @@ int main() {
   vector<array<int, alpha>> p(n + 1);
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < alpha; j++) {
-      p[i + 1][j] = p[i][j] + (s[i] == (char) (j + 'a'));
+      p[i + 1][j] = p[i][j];
     }
+    p[i + 1][(int) (s[i] - 'a')] += 1;
   } 
   int tt;
   cin >> tt;

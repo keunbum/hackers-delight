@@ -8,27 +8,47 @@ using namespace std;
 #define debug(...) void(0)
 #endif
 
-long long solution(int n, vector<int> times) {
-  long long low = 1;
-  long long high = (long long) 1e18;
-  while (low < high) {
-    long long mid = low + (high - low) / 2;
-    long long cnt = 0;
-    for (int i = 0; i < (int) times.size(); i++) {
-      cnt += mid / times[i];
-    }
-    if (cnt >= n) {
-      high = mid;
-    } else {
-      low = mid + 1;
-    }
+int solution(vector<vector<int>> jobs) {
+  int n = (int) jobs.size();
+  sort(jobs.begin(), jobs.end());
+  int L = 0;
+  int ret = 0;
+  while (L < (int) jobs.size()) {
+    debug(L, jobs[L]);
+    ret += jobs[L][1];
+    int T = jobs[L][0] + jobs[L][1];
+    while (true) {
+      int R = L + 1;
+      int min_p = 1001;
+      int pos = -1;
+      debug(T);
+      while (R < (int) jobs.size() && jobs[R][0] < T) {
+        debug(R, jobs[R]);
+        if (jobs[R][1] < min_p) {
+          min_p = jobs[R][1];
+          pos = R;
+        }
+        R += 1;
+      }
+      debug(pos);
+      if (pos == -1) {
+        L = R;
+        break;
+      }
+      ret += (T - jobs[pos][0]) + jobs[pos][1];
+      T += jobs[pos][1];
+      jobs.erase(jobs.begin() + pos);
+    }        
   }
-  return low;
+  ret /= n;
+  debug(ret);
+  return ret;
 }
 
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  solution({{0, 3}, {1, 9}, {2, 6}, {3, 3}, {4, 9}, {5, 6}});
   return 0;
 }
 
