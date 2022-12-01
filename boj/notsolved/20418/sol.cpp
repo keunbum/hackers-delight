@@ -395,15 +395,6 @@ int main() {
     ret[least->id] += max(0, new_rank - old_rank);
     queries[least->id].pop_back();
   }
-  function<void(node*)> DFS = [&](node* v) {
-    if (v == nullptr) {
-      return;
-    }
-    DFS(v->l);
-    rank[v->id] = order--;
-    DFS(v->r);
-  };
-  DFS(root);
   debug(ret);
   debug(rank);
   vector<int> ord(n);
