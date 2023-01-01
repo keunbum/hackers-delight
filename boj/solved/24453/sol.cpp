@@ -24,7 +24,7 @@ int main() {
   for (int i = 0; i < m + 1; i++) {
     b[i] = a[i + 1] - a[i] - 1;
   }
-  vector<long long> sum(m + 2);
+  vector<int> sum(m + 2);
   sum[0] = 0;
   for (int i = 0; i < m + 1; i++) {
     sum[i + 1] = sum[i] + b[i];
@@ -37,7 +37,7 @@ int main() {
   debug(low, high);
   while (low < high) {
     int mid = (low + high) / 2;
-    long long mx = 0;
+    int mx = 0;
     for (int i = mid; i < m + 1; i++) {
       mx = max(mx, sum[i + 1] - sum[i - mid]);
     }
