@@ -13,17 +13,25 @@ int main() {
   cin.tie(0);
   int n;
   cin >> n;
-  vector<pair<int, int>> a(n);
+  vector<tuple<int, int, int>> a(n + n);
   for (int i = 0; i < n; ++i) {
     int x, r;
     cin >> x >> r;
-    a[i] = {x - r, x + r};
+    a[i] = {x - r, ~1, i};
+    a[i + n] = {x + r, ~-1, i};
   }
   sort(a.begin(), a.end());
-  for (int i = 1; i < n; ++i) {
-    if (a[i - 1].first == a[i].first || (a[i].first <= a[i - 1].second && a[i - 1].second <= a[i].second)) {
-      cout << "NO" << '\n';
-      return 0;
+  vector<int> stk;
+  for (auto[_, t, i] : a) {
+    t = ~t;
+    if (t > 0) {
+      stk.push_back(i);
+    } else {
+      if (stk.empty() || stk.back() != i) {
+        cout << "NO" << '\n';
+        return 0;
+      }
+      stk.pop_back();
     }
   }
   cout << "YES" << '\n';
