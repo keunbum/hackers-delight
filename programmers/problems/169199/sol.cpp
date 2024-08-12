@@ -26,27 +26,18 @@ int solution(vector<string> grid) {
       }
     }
   }
-  for (int i = 0; i < h; ++i) {
-    for (int j = 0; j < w; ++j) {
-      if (grid[i][j] == 'D') {
-        continue;
+  auto GetNext = [&](int mi, int mj, int dir) -> array<int, 2> {
+    while (true) {
+      int ni = mi + di[dir];
+      int nj = mj + dj[dir];
+      if (ni < 0 || nj < 0 || ni >= h || nj >= w || grid[ni][nj] == 'D') {
+        break;
       }
-      for (int dir = 0; dir < 4; ++dir) {
-        int mi = i;
-        int mj = j;
-        while (true) {
-          int ni = mi + di[dir];
-          int nj = mj + dj[dir];
-          if (ni < 0 || nj < 0 || ni >= h || nj >= w || grid[ni][nj] == 'D') {
-            break;
-          }
-          mi = ni;
-          mj = nj;
-        }
-        nxt[i][j][dir] = {mi, mj};
-      }
+      mi = ni;
+      mj = nj;
     }
-  }      
+    return {mi, mj};
+  }; 
   vector<array<int, 2>> que{{si, sj}};
   vector<vector<bool>> was(h, vector<bool>(w, false));
   was[si][sj] = true;
@@ -54,7 +45,7 @@ int solution(vector<string> grid) {
     vector<array<int, 2>> nque;
     for (auto [mi, mj] : que) {
       for (int dir = 0; dir < 4; ++dir) {
-        auto [ni, nj] = nxt[mi][mj][dir];
+        auto[ni, nj] = GetNext(mi, mj, dir);
         if (grid[ni][nj] == 'G') {
           return iter + 1;
         }
