@@ -3,7 +3,7 @@
 using namespace std;
 
 #ifdef LOCAL
-#include "template/debug.hpp"
+#include "template/debug.h"
 #else
 #define debug(...) void(0)
 #endif

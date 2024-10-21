@@ -30,7 +30,6 @@ int main() {
       s += a[perm[R + 1]];
       R += 1;
     }
-    debug(L, R, s);
     if (s <= 2 * N) {
       cout << R - L + 1 << '\n';
       for (int i = L; i <= R; ++i) {

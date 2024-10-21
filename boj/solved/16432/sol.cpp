@@ -26,9 +26,7 @@ int main() {
       cin >> a;
       --a;
       for (int j = 0; j < K; ++j) {
-        if (j != a) {
-          dp[i][a] |= dp[i - 1][j];
-        }
+        dp[i][a] |= (j != a) && dp[i - 1][j];
       }
     }
   }
@@ -37,7 +35,6 @@ int main() {
   for (int i = n; i >= 1; --i) {
     for (int j = 0; j < K; ++j) {
       if (j != pre && dp[i][j]) {
-        debug(i, j, pre);
         pre = j;
         res.push_back(j);
         break;

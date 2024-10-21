@@ -21,6 +21,6 @@ begin
   read(n,l,r,x);
   for i:=1 to n do read(a[i]);
   ans:=0;
-  DFS(1,0,0,round(1e7),0);
+  DFS(1,0,0,int32(1e7),0);
   writeln(ans);  
 end.

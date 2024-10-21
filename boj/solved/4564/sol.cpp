@@ -17,11 +17,10 @@ int main() {
     if (n == 0) break;
     cout << n;
     while (n > 9) {
-      int x = n;
       int m = 1;
-      while (x > 0) {
-        m *= x % 10;
-        x /= 10;
+      while (n > 0) {
+        m *= n % 10;
+        n /= 10;
       }
       cout << " " << m;
       n = m;
