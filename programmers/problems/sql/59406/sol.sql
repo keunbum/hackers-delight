@@ -1,2 +1,0 @@
-SELECT COUNT(*) AS animal_cnt
-FROM ANIMAL_INS;

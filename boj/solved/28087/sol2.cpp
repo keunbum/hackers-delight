@@ -14,8 +14,7 @@ int main() {
   int N, m;
   cin >> N >> m;
   int sum = 0;
-  int cnt = 0;
-  string is;
+  vector<int> v;
   for (int i = 1; i <= m; ++i) {
     int s;
     cin >> s;
@@ -24,12 +23,13 @@ int main() {
       return 0;
     }
     if (s < N) {
-      is += to_string(i) + '\n';
-      cnt += 1;
+      v.push_back(i);
       sum += s;
       if (sum >= N) {
-        cout << cnt << '\n';
-        cout << is << '\n';
+        cout << v.size() << '\n';
+        for (int x : v) {
+          cout << x << '\n';
+        }
         return 0;
       }
     }

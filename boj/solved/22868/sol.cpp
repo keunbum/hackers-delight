@@ -22,7 +22,9 @@ int main() {
     g[y].push_back(x);
   }
   for (auto& us : g) {
-    sort(us.begin(), us.end());
+    sort(us.begin(), us.end(), [&](int i, int j) {
+      return i < j;
+    });
   }
   vector<bool> ignore(n, false);
   vector<int> prev(n, -1);

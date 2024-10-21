@@ -1,1 +1,0 @@
-SELECT * FROM ANIMAL_INS ORDER BY animal_id;

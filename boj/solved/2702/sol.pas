@@ -21,6 +21,6 @@ begin
   begin
     read(a,b);
     g:=GCD(a,b);
-    writeln(a*b div g,' ',g);
+    writeln(a * b div g,' ',g);
   end;
 end.

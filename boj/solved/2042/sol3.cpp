@@ -8,59 +8,73 @@ using namespace std;
 #define debug(...) void(0)
 #endif
 
-template <typename T>
-class fenwick {
- public:
-  int n;
-  vector<T> a;
-
-  fenwick(int _n) : n(_n), a(n) {}
-
-  void modify(int x, const T& by) {
-    while (x >= 0) {
-      a[x] += by;
-      x = (x & (x + 1)) - 1;
-    }
-  }
-
-  T get(int x) const {
-    T v{};
-    while (x < n) {
-      v += a[x];
-      x |= x + 1;
-    }
-    return v;
-  }
-};
-
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  int n, m, k;
-  cin >> n >> m >> k;
-  vector<long long> a(n);
-  fenwick<long long> fenw(n);
-  for (int i = 0; i < n; ++i) {
-    cin >> a[i];
-    fenw.modify(i, a[i]);
+  int n;
+  cin >> n;
+  vector<vector<int>> g(n);
+  for (int i = 0; i < n - 1; i++) {
+    int x, y;
+    cin >> x >> y;
+    --x; --y;
+    g[x].push_back(y);
+    g[y].push_back(x);
   }
-  m += k;
-  while (m--) {
-    int cmd;
-    cin >> cmd;
-    if (cmd & 1) {
-      int i;
-      long long x;
-      cin >> i >> x;
-      --i;
-      fenw.modify(i, x - a[i]);
-      a[i] = x;
-    } else {
-      int i, j;
-      cin >> i >> j;
-      --i; --j;
-      cout << fenw.get(i) - fenw.get(j + 1) << '\n';
+  vector<int> dist(n, -1);
+  vector<int> parent(n, -1);
+  {
+    vector<int> que(1, 0);
+    dist[0] = 0;
+    parent[0] = 0;
+    for (int b = 0; b < (int) que.size(); b++) {
+      int v = que[b];
+      for (int u : g[v]) {
+        if (dist[u] == -1) {
+          dist[u] = dist[v] + 1;
+          parent[u] = v;
+          que.push_back(u);
+        }
+      }
     }
+  }
+  const int LOG = 18;
+  vector<array<int, LOG>> nxt(n);
+  for (int i = 0; i < n; i++) {
+    nxt[i][0] = parent[i];
+  }
+  for (int j = 1; j < LOG; j++) {
+    for (int i = 0; i < n; i++) {
+      nxt[i][j] = nxt[nxt[i][j - 1]][j - 1];
+    }
+  }
+  auto LCA = [&](int u, int v) {
+    if (dist[u] < dist[v]) {
+      swap(u, v);
+    }
+    for (int j = LOG - 1; j >= 0; j--) {
+      if (dist[u] - (1 << j) >= dist[v]) {
+        u = nxt[u][j];
+      }
+    }
+    if (u == v) {
+      return u;
+    }
+    for (int j = LOG - 1; j >= 0; j--) {
+      if (nxt[u][j] != nxt[v][j]) {
+        u = nxt[u][j];
+        v = nxt[v][j];
+      }
+    }
+    return parent[u];
+  };
+  int m;
+  cin >> m;
+  while (m--) {
+    int x, y;
+    cin >> x >> y;
+    --x; --y;
+    cout << LCA(x, y) + 1 << '\n';
   }
   return 0;
 }
@@ -72,16 +86,14 @@ int main() {
   * internalization of problem statements
   * simplify. a step-by-step approach
   * readability is important
-  * don't get excited. keep calm
+  * keep calm
   
  * stuff you should look for
-  * 0-based or 1-based?
-  * off-by-one error
-  * int overflow, array bounds (habituation of assert and debug)
+  * int overflow, array bounds
   * special cases (n=1?)
   * do smth instead of nothing and stay organized
   * WRITE STUFF DOWN
-  * DON'T GET STUCK ON ONE APPROACH (feat. BFS)
+  * DON'T GET STUCK ON ONE APPROACH
   
  * after solving the problem
   * consider whether there is another way.

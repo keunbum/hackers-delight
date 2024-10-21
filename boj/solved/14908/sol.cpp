@@ -24,12 +24,9 @@ int main() {
     int vj = x[j] * y[i];
     return vi < vj || (vi == vj && i < j);
   });
-  bool first = true;
   for (int i : order) {
-    cout << (!first ? " " : "") << i + 1;
-    first = false;
+    cout << i + 1 << ' ';
   }
-  cout << '\n';
   return 0;
 }
 
